@@ -4,12 +4,9 @@
 
 int main(int argc, char const *argv[])
 {
-    Person person;
+    Person person{"La Faluche", "Palluche"};
 
-    person.surname = "Palluche";
-    person.first_name = "La Faluche";
-
-    std::cout << "Prenom : " << person.surname << "\nNom : " << person.first_name << std::endl;
+    std::cout << "Prenom : " << person.get_surname() << "\nNom : " << person.get_first_name() << std::endl;
 
     return 0;
 }
