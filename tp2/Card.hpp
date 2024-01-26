@@ -10,7 +10,7 @@ enum class Card_enum
     dix = 10,
     valet = 11,
     dame = 12,
-    roix = 13,
+    roi = 13,
     as = 14
 };
 
