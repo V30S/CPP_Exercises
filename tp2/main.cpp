@@ -2,7 +2,7 @@
 
 int main(int argc, char const *argv[])
 {
-    Card c1{Card_enum::huit, "Pique"};
+    const Card c1{Card_enum::huit, "Pique"};
     c1.print();
     return 0;
 }
