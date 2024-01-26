@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 enum class Card_enum
 {
@@ -16,10 +17,11 @@ enum class Card_enum
 
 class Card
 {
+
+friend std::ostream& operator<<(std::ostream& stream, const Card& c);
+
 public:
     Card(Card_enum value, const std::string &color);
-
-    void print() const;
 
     bool operator==(const Card &c2) const; // On ne modifie pas l'objet (const) et on veut eviter les copies (const Card&)
 

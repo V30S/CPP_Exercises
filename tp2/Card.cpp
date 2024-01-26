@@ -3,25 +3,26 @@
 
 Card::Card(Card_enum value, const std::string &color) : _value{value}, _color{color} {}
 
-void Card::print() const
+std::ostream& operator<<(std::ostream& stream, const Card& c)
 {
-    switch (_value) {
+    switch (c._value) {
         case Card_enum::valet : 
-            std::cout << "Valet";
+            stream << "Valet";
             break;
         case Card_enum::dame : 
-            std::cout << "Dame";
+            stream << "Dame";
             break;
         case Card_enum::roi : 
-            std::cout << "Roi";
+            stream << "Roi";
             break;
         case Card_enum::as : 
-            std::cout << "As";
+            stream << "As";
             break;
         default:
-            std::cout << static_cast<int>(_value);
+            stream << static_cast<int>(c._value);
     }
-    std::cout << " de " << _color << std::endl;
+    stream << " de " << c._color << std::endl;
+    return stream;
 }
 
 bool Card::operator==(const Card &c2) const
