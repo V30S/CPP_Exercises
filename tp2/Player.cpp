@@ -31,3 +31,8 @@ void Player::deal_all_cards(Player &p1, Player &p2)
         p2._cards.emplace_back(all_cards[i]);
     }
 }
+
+Card Player::operator[](int index) const
+{
+    return _cards[index];
+}
