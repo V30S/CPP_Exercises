@@ -12,3 +12,8 @@ bool Card::operator==(const Card &c2) const
 {
     return c2._value == _value;
 }
+
+bool Card::operator<(const Card &c2) const
+{
+    return _value < c2._value;
+}

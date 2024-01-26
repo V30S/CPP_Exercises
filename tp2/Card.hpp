@@ -23,6 +23,8 @@ public:
 
     bool operator==(const Card &c2) const; // On ne modifie pas l'objet (const) et on veut eviter les copies (const Card&)
 
+    bool operator<(const Card &c2) const;
+
     // const std::string &get_color() const { return _color; }
 
 private:
