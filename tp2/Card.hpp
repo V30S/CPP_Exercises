@@ -18,8 +18,12 @@ class Card
 {
 public:
     Card(Card_enum value, const std::string &color);
+
     void print() const;
-    const std::string &get_color() const { return _color; }
+
+    bool operator==(const Card &c2) const; // On ne modifie pas l'objet (const) et on veut eviter les copies (const Card&)
+
+    // const std::string &get_color() const { return _color; }
 
 private:
     Card_enum _value;
