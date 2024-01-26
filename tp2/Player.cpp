@@ -36,3 +36,35 @@ Card Player::operator[](int index) const
 {
     return _cards[index];
 }
+
+unsigned int Player::turn_number = 0;
+
+bool Player::play(Player &p1, Player &p2)
+{
+    if (turn_number >= p1._cards.size())
+    {
+        return true;
+    }
+
+    std::cout << "Tour : " << turn_number << std::endl;
+    std::cout << "Player 1 carte : " << p1._cards[turn_number] << std::endl;
+    std::cout << "Player 2 carte : " << p2._cards[turn_number] << std::endl;
+
+    if (p2._cards[turn_number] < p1._cards[turn_number])
+    {
+        p1._score++;
+    }
+    else if (p1._cards[turn_number] < p2._cards[turn_number])
+    {
+        p2._score++;
+    }
+
+    turn_number++;
+
+    return false;
+}
+
+int Player::get_score() const
+{
+    return _score;
+}
