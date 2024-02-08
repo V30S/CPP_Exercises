@@ -19,7 +19,7 @@ int main()
 
     // TODO Q3.
     // Affiche tous les employés managés par Charline.
-    // charline.print_subordinates();
+    charline.print_subordinates();
 
     // TODO Q4.
     // Jacques est licencié...
