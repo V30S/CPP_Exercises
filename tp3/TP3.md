@@ -327,6 +327,8 @@ Pour quelle raison le programme utilise-t-il des `std::list` plutôt que des `st
 Si vous ne trouvez pas, remplacez les `list` par des `vector` et lancez le programme en mode Debug pour observer le comportement.
 En particulier, utilisez le debugger pour surveiller le contenu de `rd_dpt`.
 
+La raison pour laquelle on utilise des `std::list` est que l'on va souvent insérer et supprimer des éléments dans ces listes, pour eviter de devoir realouer la memoire a chaque fois, on utilise des listes chainées.
+
 2. Implémentez la fonction `print_employees` dans la classe `Department` (notez que `operator<<` est déjà fourni pour `Employee`).  
 Faites de même pour `print_all_departments` et `print_all_employees` dans la classe `HRSoftSystem`.  
 Décommentez les instructions correspondantes dans [HRSoftTests.cpp](3-hrsoft/HRSoftTests.cpp) pour vérifier que tout fonctionne.
