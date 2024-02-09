@@ -2,12 +2,11 @@
 
 #include "PhoneBookEntry.hpp"
 
-#include <list>
+#include <vector>
 
 class PhoneBook {
 public:
     void add_entry(const PhoneBookEntry& phoneBookEntry);
-    PhoneBookEntry* get_number(const std::string& name) const;
 private:
-    std::list<PhoneBookEntry> _phoneBook;
+    std::vector<PhoneBookEntry> _phoneBook;
 };
