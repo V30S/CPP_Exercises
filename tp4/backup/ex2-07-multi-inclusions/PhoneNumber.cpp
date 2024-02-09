@@ -32,5 +32,5 @@ std::ostream& operator<<(std::ostream& stream, PhoneNumber phoneNumber)
         phoneNumber._array_of_numbers[i] < 10 ? stream << "0" << phoneNumber._array_of_numbers[i]
                                               : stream << phoneNumber._array_of_numbers[i];
     }
-    return stream << std::endl;
+    return stream;
 }
