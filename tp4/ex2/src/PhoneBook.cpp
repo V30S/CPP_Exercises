@@ -1,13 +1,19 @@
 #include "PhoneBook.hpp"
 
-void PhoneBook::add_entry(const PhoneBookEntry& phoneBookEntry) {
+#include <iostream>
+
+void PhoneBook::add_entry(const PhoneBookEntry& phoneBookEntry)
+{
     _phoneBook.emplace_back(phoneBookEntry);
 }
 
-PhoneBookEntry* PhoneBook::get_number(const std::string& name) const {
-    for (auto phoneBookEntry : _phoneBook) {
-        if (phoneBookEntry.get_name() == name) {
-            return &phoneBookEntry;
+const PhoneNumber* PhoneBook::get_number(const std::string& name) const
+{
+    for (const auto& phoneBookEntry : _phoneBook)
+    {
+        if (phoneBookEntry.get_name() == name)
+        {
+            return &(phoneBookEntry.get_number());
         }
     }
     return nullptr;

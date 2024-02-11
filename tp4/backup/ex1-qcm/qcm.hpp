@@ -16,11 +16,15 @@
 // devant le type de retour de la fonction.
 #define ANSWER_1 false
 
+// il est tout à droite
+
 // Le type char* est le mieux adapté pour représenter des chaînes de caractères.
 #define ANSWER_2 false
 
 // On ne peut pas définir de fonctions-membres dans une struct.
 #define ANSWER_3 false
+
+// struct sous entend dataclass
 
 // Le littéral 0u est de type unsigned int.
 #define ANSWER_4 true
@@ -28,18 +32,26 @@
 // Une variable booléenne se définit avec le type "boolean".
 #define ANSWER_5 false
 
+// c bool
+
 // Le constructeur d'une classe n'a pas de type de retour.
 #define ANSWER_6 true
 
 // Le destructeur d'une classe a pour type de retour "void".
 #define ANSWER_7 false
 
+// pas de type de retour
+
 // On peut utiliser "inline" pour définir des attributs statiques directement dans la classe.
-#define ANSWER_8 false
+#define ANSWER_8 true
+
+// c true ??
 
 // Si une fonction est définie dans deux fichiers-objets différents, l'erreur se produit lors de la phase de
 // build.
 #define ANSWER_9 false
+
+// phase de linkage
 
 // Le mot-clef "auto" sert à définir des variables sans préciser leur valeur initiale.
 #define ANSWER_10 false
@@ -49,3 +61,5 @@
 
 // Il faut toujours penser à appeler "delete" sur les pointeurs observants.
 #define ANSWER_12 false
+
+// ils n'ont pas la responsabilités de les supp ce sont les pointeurs ownant qui doivent le faire.

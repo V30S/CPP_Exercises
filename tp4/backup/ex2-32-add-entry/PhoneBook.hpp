@@ -4,10 +4,12 @@
 
 #include <list>
 
-class PhoneBook {
+class PhoneBook
+{
 public:
-    void add_entry(const PhoneBookEntry& phoneBookEntry);
-    PhoneBookEntry* get_number(const std::string& name) const;
+    void         add_entry(const PhoneBookEntry& phoneBookEntry);
+    const PhoneNumber* get_number(const std::string& name) const;
+
 private:
     std::list<PhoneBookEntry> _phoneBook;
 };
