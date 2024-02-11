@@ -7,7 +7,7 @@
 class PhoneBook
 {
 public:
-    void         add_entry(const PhoneBookEntry& phoneBookEntry);
+    bool         add_entry(const PhoneBookEntry& phoneBookEntry);
     const PhoneNumber* get_number(const std::string& name) const;
 
 private:

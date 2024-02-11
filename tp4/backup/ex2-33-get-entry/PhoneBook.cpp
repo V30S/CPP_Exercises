@@ -2,9 +2,14 @@
 
 #include <iostream>
 
-void PhoneBook::add_entry(const PhoneBookEntry& phoneBookEntry)
+bool PhoneBook::add_entry(const PhoneBookEntry& phoneBookEntry)
 {
-    _phoneBook.emplace_back(phoneBookEntry);
+    if (phoneBookEntry.get_number().is_valid())
+    {
+        _phoneBook.emplace_back(phoneBookEntry);
+        return true;
+    }
+    return false;
 }
 
 const PhoneNumber* PhoneBook::get_number(const std::string& name) const
