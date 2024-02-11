@@ -4,6 +4,13 @@
 
 bool PhoneBook::add_entry(const PhoneBookEntry& phoneBookEntry)
 {
+    for (const auto& entry : _phoneBook)
+    {
+        if (entry.get_name() == phoneBookEntry.get_name())
+        {
+            return false;
+        }
+    }
     if (phoneBookEntry.get_number().is_valid())
     {
         _phoneBook.emplace_back(phoneBookEntry);
