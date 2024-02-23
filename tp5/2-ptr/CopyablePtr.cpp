@@ -25,5 +25,13 @@ void CopyablePtr::operator=(std::nullptr_t new_object)
 }
 
 CopyablePtr::CopyablePtr(const CopyablePtr& other)
-    : _object_ptr { new Object(*other._object_ptr) }
-{}
+{
+    if (other._object_ptr == nullptr)
+    {
+        _object_ptr = nullptr;
+    }
+    else
+    {
+        _object_ptr = new Object(*other._object_ptr);
+    }
+}
