@@ -15,42 +15,52 @@
 
 a. `i` est un `int`  
 ```cpp
-4
-4 + i
-i
-i = 4
-i == 4
+4 // r-value
+4 + i // r-value
+i // l-value
+i = 4 // l-value
+i == 4 // r-value
 ```
 
 b. `vec` est un `std::vector<char>`
 ```cpp
-vec[5]
-vec
-vec.pop_back()
-std::vector { 'a', 'b', 'c' }
-vec.push_back('d')
-std::move(vec)
+vec[5] // l-value
+vec // l-value
+vec.pop_back() // r-value
+std::vector { 'a', 'b', 'c' } // l-value
+vec.push_back('d') // r-value
+std::move(vec) // r-value car transforme une l-value en r-value
 ```
 
 c. `ptr` est un pointeur de `int`
 ```cpp
-ptr + 3
-*(ptr + 3)
-*ptr + 3
+ptr + 3 // r-value
+*(ptr + 3) // l-value
+*ptr + 3 // r-value
 ```
 
 d. `str` est une `std::string`
 ```cpp
-std::string { "aaaa" }
-str
-str + "aaaa"
-str += "aaaa"
-"aaaa"
+std::string { "aaaa" } // r-value
+str // l-value
+str + "aaaa" // r-value
+str += "aaaa" // l-value
+"aaaa" // r-value
 ```
 
 2. Supposons que vous ayiez l'instruction : `Class inst { expr }`.  
 Quelles sont les deux conditions pour que le constructeur de copie soit appelé ?  
 Même question pour le constructeur de déplacement ?
+
+>Pour que le constructeur de copie soit appelé, il faut que nous aillons une ligne de la forme : 
+```cpp
+Class inst { expr }
+Class inst2 { expr2 }
+
+inst2 = inst
+```
+
+>Pour que le constructeur de déplacement soit appelé, il faut que nous aillons une ligne de la forme `Class inst2 = std::move(inst)`.
 
 ## Exercice 2 - CopyablePtr (90 min)
 
