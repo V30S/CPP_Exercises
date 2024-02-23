@@ -35,3 +35,9 @@ CopyablePtr::CopyablePtr(const CopyablePtr& other)
         _object_ptr = new Object(*other._object_ptr);
     }
 }
+
+CopyablePtr::CopyablePtr(CopyablePtr&& other)
+    : _object_ptr { std::move(other._object_ptr) }
+{
+    other._object_ptr = nullptr;
+}

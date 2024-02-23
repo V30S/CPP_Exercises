@@ -60,19 +60,19 @@ int main()
     std::cout << "null_ptr_copy is " << (null_ptr == nullptr ? "null" : "not null") << std::endl;
     std::cout << std::endl;
 
-    // // B3. On déplace ptr_1 dans un nouveau pointeur.
-    // print_expected("ptr_1 is null");
-    // CopyablePtr ptr_2 = std::move(ptr_1);
-    // std::cout << "ptr_1 is " << (ptr_1 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    // B3. On déplace ptr_1 dans un nouveau pointeur.
+    print_expected("ptr_1 is null");
+    CopyablePtr ptr_2 = std::move(ptr_1);
+    std::cout << "ptr_1 is " << (ptr_1 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
-    // print_expected("ptr_2 is not null");
-    // std::cout << "ptr_2 is " << (ptr_2 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("ptr_2 is not null");
+    std::cout << "ptr_2 is " << (ptr_2 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
-    // print_expected("Object #1 [[ 5 ]]");
-    // std::cout << *ptr_2 << std::endl;
-    // std::cout << std::endl;
+    print_expected("Object #1 [[ 5 ]]");
+    std::cout << *ptr_2 << std::endl;
+    std::cout << std::endl;
 
     // // C1. On réassigne à ptr_0 le contenu de ptr_2 par copie.
     // print_expected("Object #1 [[ 5 ]] has been copied into Object #3 [[ 5 ]]");
