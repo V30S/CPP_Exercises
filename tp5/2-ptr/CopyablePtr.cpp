@@ -51,3 +51,14 @@ CopyablePtr& CopyablePtr::operator=(const CopyablePtr& other)
     }
     return *this;
 }
+
+CopyablePtr& CopyablePtr::operator=(CopyablePtr&& other)
+{
+    if (this != &other)
+    {
+        delete _object_ptr;
+        _object_ptr       = std::move(other._object_ptr);
+        other._object_ptr = nullptr;
+    }
+    return *this;
+}
