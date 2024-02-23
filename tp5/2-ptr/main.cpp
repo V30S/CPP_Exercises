@@ -79,11 +79,11 @@ int main()
     ptr_0 = ptr_2;
     std::cout << std::endl;
 
-    // // C2. On vérifie que l'instance contenue dans ptr_2 est bien détruite avant la copie.
-    // print_expected("Object #1 [[ 5 ]] has been destroyed\n"
-    //                "Object #3 [[ 5 ]] has been copied into Object #4 [[ 5 ]]");
-    // ptr_2 = ptr_0;
-    // std::cout << std::endl;
+    // C2. On vérifie que l'instance contenue dans ptr_2 est bien détruite avant la copie.
+    print_expected("Object #1 [[ 5 ]] has been destroyed\n"
+                   "Object #3 [[ 5 ]] has been copied into Object #4 [[ 5 ]]");
+    ptr_2 = ptr_0;
+    std::cout << std::endl;
 
     // // C3. On s'assure que réassigner ptr_2 à lui-même n'a pas d'effet.
     // print_expected("Object #4 [[ 5 ]]");

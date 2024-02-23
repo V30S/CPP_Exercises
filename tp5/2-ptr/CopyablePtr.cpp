@@ -46,6 +46,7 @@ CopyablePtr& CopyablePtr::operator=(const CopyablePtr& other)
 {
     if (this != &other)
     {
+        delete _object_ptr;
         _object_ptr = other._object_ptr != nullptr ? new Object(*other._object_ptr) : nullptr;
     }
     return *this;
