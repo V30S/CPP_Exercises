@@ -62,3 +62,8 @@ CopyablePtr& CopyablePtr::operator=(CopyablePtr&& other)
     }
     return *this;
 }
+
+CopyablePtr::~CopyablePtr()
+{
+    delete _object_ptr;
+}
