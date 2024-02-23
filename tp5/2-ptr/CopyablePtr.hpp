@@ -21,4 +21,6 @@ public:
     CopyablePtr(const CopyablePtr& other);
 
     CopyablePtr(CopyablePtr&& other);
+
+    CopyablePtr& operator=(const CopyablePtr& other);
 };

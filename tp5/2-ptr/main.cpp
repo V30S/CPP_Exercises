@@ -74,10 +74,10 @@ int main()
     std::cout << *ptr_2 << std::endl;
     std::cout << std::endl;
 
-    // // C1. On réassigne à ptr_0 le contenu de ptr_2 par copie.
-    // print_expected("Object #1 [[ 5 ]] has been copied into Object #3 [[ 5 ]]");
-    // ptr_0 = ptr_2;
-    // std::cout << std::endl;
+    // C1. On réassigne à ptr_0 le contenu de ptr_2 par copie.
+    print_expected("Object #1 [[ 5 ]] has been copied into Object #3 [[ 5 ]]");
+    ptr_0 = ptr_2;
+    std::cout << std::endl;
 
     // // C2. On vérifie que l'instance contenue dans ptr_2 est bien détruite avant la copie.
     // print_expected("Object #1 [[ 5 ]] has been destroyed\n"
