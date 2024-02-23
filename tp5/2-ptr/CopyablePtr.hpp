@@ -5,8 +5,12 @@
 class CopyablePtr
 {
 private:
-    Object* _object_ptr = nullptr;
+    Object* _object_ptr;
 
 public:
     bool operator==(const std::nullptr_t& ptr) const;
+
+    CopyablePtr();
+
+    CopyablePtr(int number);
 };

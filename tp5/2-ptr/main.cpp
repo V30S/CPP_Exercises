@@ -21,14 +21,14 @@ int main()
     std::cout << "null_ptr is " << (null_ptr == nullptr ? "null" : "not null") << std::endl;
     std::cout << std::endl;
 
-    // // A3. On instancie un CopyablePtr avec la valeur 4.
-    // print_expected("Object #0 [[ 4 ]] has been created");
-    // CopyablePtr ptr_0 { 4 };
-    // std::cout << std::endl;
+    // A3. On instancie un CopyablePtr avec la valeur 4.
+    print_expected("Object #0 [[ 4 ]] has been created");
+    CopyablePtr ptr_0 { 4 };
+    std::cout << std::endl;
 
-    // print_expected("ptr_0 is not null");
-    // std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("ptr_0 is not null");
+    std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
     // // A4. On déréférence pour récupérer l'Object stocké dans le pointeur.
     // print_expected("Object #0 [[ 4 ]]");
