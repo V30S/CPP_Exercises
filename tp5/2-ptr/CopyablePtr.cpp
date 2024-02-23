@@ -23,3 +23,7 @@ void CopyablePtr::operator=(std::nullptr_t new_object)
     delete _object_ptr;
     _object_ptr = new_object;
 }
+
+CopyablePtr::CopyablePtr(const CopyablePtr& other)
+    : _object_ptr { new Object(*other._object_ptr) }
+{}

@@ -17,4 +17,6 @@ public:
     const Object& operator*() const;
 
     void operator=(std::nullptr_t new_object);
+
+    CopyablePtr(const CopyablePtr& other);
 };
