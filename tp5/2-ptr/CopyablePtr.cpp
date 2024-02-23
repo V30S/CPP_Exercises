@@ -12,3 +12,8 @@ CopyablePtr::CopyablePtr()
 CopyablePtr::CopyablePtr(int number)
     : _object_ptr { new Object(number) }
 {}
+
+const Object& CopyablePtr::operator*() const
+{
+    return *_object_ptr;
+}

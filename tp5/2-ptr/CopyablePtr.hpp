@@ -13,4 +13,6 @@ public:
     CopyablePtr();
 
     CopyablePtr(int number);
+
+    const Object& operator*() const;
 };
