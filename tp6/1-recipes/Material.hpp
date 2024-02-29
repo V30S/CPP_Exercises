@@ -20,6 +20,8 @@ public:
         std::cout << _name << " was destroyed" << std::endl;
     }
 
+    const std::string &get_name() const { return _name; }
+
 private:
     std::string _name;
 };

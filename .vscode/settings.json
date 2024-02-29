@@ -84,6 +84,8 @@
         "thread": "cpp",
         "variant": "cpp",
         "ranges": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "__locale": "cpp",
+        "locale": "cpp"
     }
 }

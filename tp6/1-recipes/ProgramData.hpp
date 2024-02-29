@@ -39,4 +39,5 @@ public:
 private:
     // Placez vos données ici...
     std::vector<std::unique_ptr<Material>> _inventory;
+    std::vector<std::unique_ptr<Recipe>> _recipes;
 };
