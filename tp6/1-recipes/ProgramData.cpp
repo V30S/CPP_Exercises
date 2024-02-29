@@ -64,5 +64,18 @@ void ProgramData::collect_doable_recipes(std::vector<const Recipe *> &recipes) c
 ProductionResult ProgramData::produce(size_t recipe_id)
 {
     ProductionResult result;
+
+    for (const auto &recipe : _recipes)
+    {
+        if (recipe->get_id() == recipe_id)
+        {
+            result.recipe = recipe.get();
+
+            
+
+            break;
+        }
+    }
+
     return result;
 }
