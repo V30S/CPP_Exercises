@@ -19,15 +19,27 @@ void ProgramData::register_recipe(std::vector<std::string> materials, std::vecto
     std::cout << "Recipe " << *new_recipe.get() << " has been registered" << std::endl;
 }
 
+void ProgramData::copy_materials(const std::vector<std::unique_ptr<Material>> &source, std::vector<const Material *> &destination) const
+{
+    for (const auto &material : source)
+    {
+        destination.emplace_back(material.get());
+    }
+}
+
 void ProgramData::collect_doable_recipes(std::vector<const Recipe *> &recipes) const
 {
     for (const auto &recipe : _recipes)
     {
         bool doable = true;
+
+        std::vector<const Material *> materials_copy;
+        copy_materials(_inventory, materials_copy);
+
         for (const auto &material : recipe->get_materials())
         {
             bool found = false;
-            for (const auto &inventory_material : _inventory)
+            for (const auto &inventory_material : materials_copy)
             {
                 if (material == inventory_material->get_name())
                 {

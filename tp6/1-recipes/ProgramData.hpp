@@ -40,4 +40,6 @@ private:
     // Placez vos données ici...
     std::vector<std::unique_ptr<Material>> _inventory;
     std::vector<std::unique_ptr<Recipe>> _recipes;
+
+    void copy_materials(const std::vector<std::unique_ptr<Material>> &source, std::vector<const Material *> &destination) const;
 };
