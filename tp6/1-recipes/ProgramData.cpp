@@ -39,10 +39,11 @@ void ProgramData::collect_doable_recipes(std::vector<const Recipe *> &recipes) c
         for (const auto &material : recipe->get_materials())
         {
             bool found = false;
-            for (const auto &inventory_material : materials_copy)
+            for (auto it = materials_copy.begin(); it != materials_copy.end(); ++it)
             {
-                if (material == inventory_material->get_name())
+                if ((*it)->get_name() == material)
                 {
+                    materials_copy.erase(it);
                     found = true;
                     break;
                 }
