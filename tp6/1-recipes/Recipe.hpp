@@ -36,6 +36,11 @@ public:
         return _materials;
     }
 
+    const std::vector<std::string> &get_products() const
+    {
+        return _products;
+    }
+
     const size_t get_id() const
     {
         return _id;

@@ -71,8 +71,46 @@ ProductionResult ProgramData::produce(size_t recipe_id)
         {
             result.recipe = recipe.get();
 
+            std::vector<const Material *> materials_copy;
+            copy_materials(_inventory, materials_copy);
             
+            for (const auto &material : recipe->get_materials())
+            {
+                bool found = false;
+                for (auto it = materials_copy.begin(); it != materials_copy.end(); ++it)
+                {
+                    if ((*it)->get_name() == material)
+                    {
+                        materials_copy.erase(it);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    result.missing_materials.emplace_back(material);
+                }
+            }
 
+            if (result.missing_materials.empty())
+            {
+                for (const auto& material : recipe->get_materials())
+                {
+                    for (auto it = _inventory.begin(); it != _inventory.end(); ++it)
+                    {
+                        if ((*it)->get_name() == material)
+                        {
+                            _inventory.erase(it);
+                            break;
+                        }
+                    }
+                }
+
+                for (const auto& product : recipe->get_products())
+                {
+                    add_material(product);
+                }
+            }
             break;
         }
     }
