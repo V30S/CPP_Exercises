@@ -98,8 +98,8 @@ void trigger_interactions(const std::vector<Entity*>& entities)
 {
     if (entities.size() > 1)
     {
-        // entities[0]->interact_with(*entities[1]);
-        // entities[1]->interact_with(*entities[0]);
+        entities[0]->interact_with(*entities[1]);
+        entities[1]->interact_with(*entities[0]);
     }
 }
 
@@ -173,6 +173,17 @@ int main()
     all_entities.push_back(std::make_unique<Character>(3, 2));
     all_entities.push_back(std::make_unique<Character>(7, 6));
     all_entities.push_back(std::make_unique<Character>(40, 5));
+    all_entities.push_back(std::make_unique<Character>(20, 8));
+    all_entities.push_back(std::make_unique<Character>(10, 4));
+    all_entities.push_back(std::make_unique<Character>(30, 1));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
 
