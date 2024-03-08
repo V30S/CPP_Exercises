@@ -1,6 +1,7 @@
 #include "Character.hpp"
 #include "Entity.hpp"
 #include "Logger.hpp"
+#include "Trap.hpp"
 
 #include <array>
 #include <chrono>
@@ -169,11 +170,11 @@ int main()
     const auto height = grid.size();
 
     auto all_entities = std::vector<std::unique_ptr<Entity>> {};
-    all_entities.push_back(std::make_unique<Entity>(3, 2));
-    all_entities.push_back(std::make_unique<Entity>(7, 6));
+    all_entities.push_back(std::make_unique<Character>(3, 2));
+    all_entities.push_back(std::make_unique<Character>(7, 6));
     all_entities.push_back(std::make_unique<Character>(40, 5));
-    // all_entities.push_back(std::make_unique<Trap>(width, height));
-    // all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Trap>(width, height));
 
     fill_grid(grid, all_entities);
 
