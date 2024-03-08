@@ -9,6 +9,8 @@ class Character : public Entity
 public:
     Character(int x, int y);
 
+    ~Character();
+
     char get_representation() const override;
 
     void interact_with(Entity& other) override;

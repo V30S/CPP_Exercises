@@ -1,8 +1,15 @@
 #include "Character.hpp"
 
+#include "Logger.hpp"
+
 Character::Character(int x, int y)
     : Entity { x, y }
 {}
+
+Character::~Character()
+{
+    logger << "A character died at position (" << get_x() << ", " << get_y() << ")";
+}
 
 char Character::get_representation() const
 {
