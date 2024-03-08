@@ -57,7 +57,7 @@ public:
 int main()
 {
     Tiger tiger;
-    Animal& tiger_as_animal = tiger;
+    Animal& tiger_as_animal = tiger; // les & sont importants car sinon il ne prevoit pas un espace pour stocker l'adresse de l'objet Tiger. Tiger est plus grand en memir que Animal
     Carnivore& tiger_as_carn = tiger;
 
     Bird bird;
@@ -65,23 +65,23 @@ int main()
     Herbivore& bird_as_herb = bird;
     Carnivore& bird_as_carn = bird;
 
-    tiger.move();                  // I1
-    tiger_as_animal.move();        // I2
+    tiger.move();                  // I1 la fonction move de la classe Tiger
+    tiger_as_animal.move();        // I2 la fonction move de la classe Tiger car elle est virtuelle
 
-    bird.move();                   // I3
-    bird_as_animal.move();         // I4
+    bird.move();                   // I3 la fonction move de la classe Bird
+    bird_as_animal.move();         // I4 la fonction move de la classe Bird car elle est virtuelle
 
-    bird.can_eat_plant();          // I5
-    bird_as_herb.can_eat_plant();  // I6
-    bird_as_carn.can_eat_plant();  // I7
+    bird.can_eat_plant();          // I5 la fonction can_eat_plant de la classe Bird
+    bird_as_herb.can_eat_plant();  // I6 la fonction can_eat_plant de la classe Bird car elle est virtuelle
+    bird_as_carn.can_eat_plant();  // I7 la fonction can_eat_plant de la classe Carnivore car elle n'est pas virtuelle
 
-    tiger.can_eat_plant();         // I8
-    tiger.can_eat_meat();          // I9
-    tiger_as_carn.can_eat_meat();  // I10
+    tiger.can_eat_plant();         // I8 la fonction can_eat_plant de la classe Carnivore car il hérite cette fonction de la classe Carnivore
+    tiger.can_eat_meat();          // I9 la fonction can_eat_meat de la classe Tiger car elle shadow la fonction can_eat_meat de la classe Carnivore
+    tiger_as_carn.can_eat_meat();  // I10 la fonction can_eat_meat de la classe Carnivore car elle n'est pas virtuelle et on utilise une référence de type Carnivore
 
-    bird.type();                   // I11
-    bird_as_animal.type();         // I12
-    tiger_as_animal.type();        // I13
+    bird.type();                   // I11 la fonction type de la classe Bird
+    bird_as_animal.type();         // I12 la fonction type de la classe Animal car elle n'est pas virtuelle
+    tiger_as_animal.type();        // I13 la fonction type de la classe Animal car elle n'est pas virtuelle
 
     return 0;
 }
