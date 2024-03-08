@@ -69,7 +69,7 @@ int main()
     tiger_as_animal.move();        // I2 la fonction move de la classe Tiger car elle est virtuelle
 
     bird.move();                   // I3 la fonction move de la classe Bird
-    bird_as_animal.move();         // I4 la fonction move de la classe Bird car elle est virtuelle
+    bird_as_animal.move();         // I4 la fonction move de la classe Animal car ces 2 fonctions n'ont pas la meme signature
 
     bird.can_eat_plant();          // I5 la fonction can_eat_plant de la classe Bird
     bird_as_herb.can_eat_plant();  // I6 la fonction can_eat_plant de la classe Bird car elle est virtuelle
@@ -111,7 +111,9 @@ cmake --build <chemin_vers_le_dossier_build> --target tp6-ex1
 
 2. Prenez connaissance du contenu des fichiers pré-existants et répondez aux questions suivantes :
 - Dans [Dungeon.cpp](dungeon/Dungeon.cpp), quel est le rôle de la fonction `display` ?
+    cette fonction affiche la grille du donjon et les entités qui s'y trouvent
 - Dans [Dungeon.cpp](dungeon/Dungeon.cpp), quel est le rôle de la fonction `update` ?
+    cette fonction met à jour la position des entités dans le donjon, les fait intéragir entre elles et les détruit si nécessaire
 - Quelle variable du `main` porte l'ownership des entitées ?
 
 ### B. Personnage
