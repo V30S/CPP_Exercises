@@ -23,6 +23,8 @@ public:
 
     virtual void interact_with(Entity& other) {}
 
+    virtual bool should_destroy() const { return false; }
+
 private:
     int _x = 0;
     int _y = 0;

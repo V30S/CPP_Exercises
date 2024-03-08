@@ -1,6 +1,7 @@
 #include "Character.hpp"
 #include "Entity.hpp"
 #include "Logger.hpp"
+#include "Potion.hpp"
 #include "Trap.hpp"
 
 #include <array>
@@ -107,7 +108,7 @@ void remove_dead_entities(std::vector<std::unique_ptr<Entity>>& entities)
 {
     for (auto it = entities.begin(); it != entities.end();)
     {
-        const auto should_remove = false; // <- modifiez cette condition
+        const auto should_remove = (*it)->should_destroy();
         if (should_remove)
         {
             it = entities.erase(it);
@@ -186,6 +187,10 @@ int main()
     all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
     all_entities.push_back(std::make_unique<Trap>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
+    all_entities.push_back(std::make_unique<Potion>(width, height));
 
     fill_grid(grid, all_entities);
 
