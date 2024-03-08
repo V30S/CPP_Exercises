@@ -11,8 +11,5 @@ public:
 
     void interact_with(Entity& other) override;
 
-    bool should_destroy() const override;
-
 private:
-    bool _used = false;
 };

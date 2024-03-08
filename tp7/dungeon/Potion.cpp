@@ -17,12 +17,7 @@ void Potion::interact_with(Entity& other)
         // entity est bien une instance de Character
         if (character->get_lives() < 2)
         {
-            _used = true;
+            consume();
         }
     }
-}
-
-bool Potion::should_destroy() const
-{
-    return _used;
 }

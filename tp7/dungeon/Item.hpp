@@ -13,5 +13,10 @@ public:
     { /* Do nothing */
     }
 
+    void consume() { is_consumed = true; }
+
+    bool should_destroy() const override { return is_consumed; }
+
 private:
+    bool is_consumed = false;
 };

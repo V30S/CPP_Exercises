@@ -15,11 +15,6 @@ void Trap::interact_with(Entity& other)
     if (character != nullptr)
     {
         // entity est bien une instance de Character
-        _triggered = true;
+        consume();
     }
-}
-
-bool Trap::should_destroy() const
-{
-    return _triggered;
 }
