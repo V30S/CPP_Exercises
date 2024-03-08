@@ -115,6 +115,7 @@ cmake --build <chemin_vers_le_dossier_build> --target tp6-ex1
 - Dans [Dungeon.cpp](dungeon/Dungeon.cpp), quel est le rôle de la fonction `update` ?
     cette fonction met à jour la position des entités dans le donjon, les fait intéragir entre elles et les détruit si nécessaire
 - Quelle variable du `main` porte l'ownership des entitées ?
+    la variable `all_entities` porte l'ownership des entités
 
 ### B. Personnage
 
