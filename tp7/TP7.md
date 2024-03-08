@@ -57,7 +57,7 @@ public:
 int main()
 {
     Tiger tiger;
-    Animal& tiger_as_animal = tiger; // les & sont importants car sinon il ne prevoit pas un espace pour stocker l'adresse de l'objet Tiger. Tiger est plus grand en memir que Animal
+    Animal& tiger_as_animal = tiger; // les & sont importants car sinon il ne prevoit pas un espace pour stocker l'objet Tiger. Tiger est plus grand en memir que Animal
     Carnivore& tiger_as_carn = tiger;
 
     Bird bird;
