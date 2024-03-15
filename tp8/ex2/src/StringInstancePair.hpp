@@ -17,8 +17,6 @@ public:
         , _ptr_i { std::make_unique<InstanceCounter>(*other._ptr_i) }
     {}
 
-    ~StringInstancePair() {}
-
     StringInstancePair(StringInstancePair&& other)
         : _string_value { std::move(other._string_value) }
         , _ptr_i { std::move(other._ptr_i) }
