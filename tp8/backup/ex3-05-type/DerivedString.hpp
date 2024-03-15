@@ -13,11 +13,11 @@ public:
 
     const std::string& data() const { return _str; }
 
-    bool is_null() const { return _str == "" ? true : false; }
+    bool is_null() const override { return _str == "" ? true : false; }
 
     std::string to_string() const override { return _str; }
 
-    std::string base_type() const { return "String"; }
+    std::string base_type() const override { return "String"; }
 
 private:
     std::string _str;
