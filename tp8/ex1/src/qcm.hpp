@@ -40,7 +40,8 @@ private:
 };
 #endif
 // Est-ce que l'implémentation 1 est meilleure que l'implémentation 2?
-#define ANSWER_1
+#define ANSWER_1 \
+    true // la copie a été fait avant et en plus évitable en faisant move mais dans 2 on fait copie après
 
 // 2. // ====================================================================================================
 // Voici deux implémentations de constructeurs pour une classe Dog
