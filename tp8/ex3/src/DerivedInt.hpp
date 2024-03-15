@@ -15,6 +15,8 @@ public:
 
     std::string to_string() const override { return std::to_string(_integer); }
 
+    std::string base_type() const { return "Int"; }
+
 private:
     int _integer;
 };
