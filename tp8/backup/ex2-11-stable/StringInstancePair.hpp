@@ -9,7 +9,14 @@ class StringInstancePair
 public:
     StringInstancePair(const std::string& string_value)
         : _string_value { string_value }
+        , _ptr_i { new InstanceCounter() }
     {}
+
+    StringInstancePair(const StringInstancePair& other)
+        : _string_value { other._string_value }
+        , _ptr_i { new InstanceCounter(*other._ptr_i.get()) }
+    {}
+
     ~StringInstancePair() {}
 
     StringInstancePair(StringInstancePair&& other)
@@ -23,5 +30,5 @@ public:
 
 private:
     std::string                      _string_value;
-    std::unique_ptr<InstanceCounter> _ptr_i { new InstanceCounter() };
+    std::unique_ptr<InstanceCounter> _ptr_i;
 };

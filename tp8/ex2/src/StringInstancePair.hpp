@@ -14,7 +14,7 @@ public:
 
     StringInstancePair(const StringInstancePair& other)
         : _string_value { other._string_value }
-        , _ptr_i { new InstanceCounter(*other._ptr_i.get()) }
+        , _ptr_i { std::make_unique<InstanceCounter>(*other._ptr_i) }
     {}
 
     ~StringInstancePair() {}
