@@ -1,5 +1,6 @@
 #include <unordered_map>
 #include <functional>
+#include <cassert>
 
 enum class Content
 {
@@ -39,5 +40,6 @@ int main()
     std::unordered_map<Point2d, Content, Point2dHash, Point2dEqual> grid;
     grid.emplace(Point2d{3, 4}, Content::Empty);
     grid.emplace(Point2d{-1, 2}, Content::Red);
+    assert((grid[Point2d{3, 4}] == Content::Empty));
     return 0;
 }
