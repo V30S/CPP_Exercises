@@ -12,12 +12,12 @@
 
 | Conteneur     | Insertion (en tête / en fin) | Suppression (en tête / en fin) | Accès |
 |---------------|--------------|--------------|--------------|
-| array         |     N/A      |     N/A      |              |
-| vector        |              |              |              |
-| deque         |              |              |              |
-| forward_list  |              |              |              |
-| list          |              |              |              |
-| set           |              |              |              |
+| array         |     N/A      |     N/A      |     O(1)     |
+| vector        |  N/A/O(1)    |  N/A/O(1)    |     O(1)     |
+| deque         |  O(1)/O(1)   |  O(1)/O(1)   |     O(1)     |
+| forward_list  |  O(1)/N/A    |  O(1)/N/A    |     N/A      |
+| list          |  O(1)/O(1)   |  O(1)/O(1)   |     N/A      |
+| set           |              |     |     N/A      |
 | unordered_set |              |              |              |
 
 2. Supposons que vous ayez récupéré un itérateur sur un élément d'un conteneur avec : `auto it = std::find(ctn.begin(), ctn.end(), element_to_find)`.  
@@ -34,11 +34,41 @@ Une seule contrainte, on vous imposera un algorithme de la librairie standard à
 1. Algorithme: std::remove_if  
    Code: https://godbolt.org/z/KaTnr8Pr4  
 
+```cpp
+void remove_cats(std::vector<Animal>& animals)
+{
+    animals.erase(std::remove_if(animals.begin(), animals.end(), 
+    [](const Animal& animal) {return animal.species == "cat";}), animals.end());
+}
+```
+
 2. Algorithme: std::find_if  
    Code: https://godbolt.org/z/55x9Efrza  
 
+```cpp
+std::ptrdiff_t get_position_of_first_with_species(const std::deque<Animal>& animals, const std::string& species)
+{
+   auto last = animals.end();
+   auto i = std::find_if(animals.begin(), last, 
+    [&species](const Animal& animal) {return animal.species == species;});
+   return i == last ? -1 : std::distance(animals.begin(), i);
+}
+```
+
 3. Algorithme: std::transform + std::back_inserter  
    Code: https://godbolt.org/z/PrPoEYK5d  
+
+```cpp
+std::vector<std::string> compute_full_names(const std::vector<Person>& persons)
+{
+    std::vector<std::string> full_names;
+    std::transform(persons.begin(), 
+    persons.end(), 
+    std::back_inserter(full_names), 
+    [](const Person& person) {return person.first_name + " " + person.last_name;});
+    return full_names;
+}
+```
 
 4. Algorithme: std::accumulate  
    Code: https://godbolt.org/z/61P6K414P  
