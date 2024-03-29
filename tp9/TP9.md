@@ -86,6 +86,13 @@ L'objectif de cet exercice est de vous faire implémenter un type que vous pourr
 2. Définissez ensuite une enumération `Content` au moyen d'une `enum class`. Elle devra contenir les valeurs `Empty`, `Red` ou `Yellow`.
 3. Ajoutez une fonction `main` à votre programme et définissez une variable `grid` de type `std::unordered_map<Point2d, Content>`. Quelle est l'erreur de compilation ?
 
+On a :  
+```cpp
+the default constructor of "std::unordered_map<Point2d, Content, std::hash<Point2d>, std::equal_to<Point2d>, std::allocator<std::pair<const Point2d, Content>>>" cannot be referenced -- it is a deleted function
+```
+
+Cette erreur signifie que le type `Point2d` n'est pas hashable. Pour utiliser un type en tant que clé d'une `unordered_map`, il faut que ce type soit hashable. `unordered_map` utilise en effet une fonction de hashage pour déterminer où stocker les éléments dans la table de hachage.
+
 ### B. Spécifier des foncteurs
 
 Pour utilisez une `unordered_map`, il faut définir une fonction de hash acceptant la clé du dictionnaire en paramètre. Il existe deux méthodes pour spécifier cette fonction.
