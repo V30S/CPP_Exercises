@@ -20,6 +20,9 @@ struct Luma
     uint8_t g;
 }
 
+template <typename To, typename From>
+To convert(const From& stuff);
+
 template <>
 RGBA convert<RGBA, RGBA>(const RGBA& x)
 {
