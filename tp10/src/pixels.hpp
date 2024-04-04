@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../lib/image_lib.hpp"
+
 struct RGBA
 {
     uint8_t r;
