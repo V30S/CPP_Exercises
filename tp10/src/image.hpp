@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <functional>
 
 template <typename P, size_t W, size_t H>
 class Image
