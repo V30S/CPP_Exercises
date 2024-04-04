@@ -79,3 +79,40 @@ RGBA convert<RGBA, Luma>(const Luma& x)
 {
     return convert<RGBA>(convert<RGB>(x));
 }
+
+RGBA operator+(const RGBA& lhs, const RGBA& rhs)
+{
+    const auto mixed = image_lib::mix_color(lhs.r, lhs.g, lhs.b, lhs.a, rhs.r, rhs.g, rhs.b, rhs.a);
+    return { mixed[0], mixed[1], mixed[2], mixed[3] };
+}
+
+RGB operator+(const RGB& lhs, const RGBA& rhs)
+{
+    const auto lhs_rgba = convert<RGBA>(lhs);
+    return convert<RGB>(lhs_rgba + rhs);
+}
+
+RGB operator+(const Luma& lhs, const RGBA& rhs)
+{
+    const auto lhs_rgba = convert<RGBA>(lhs);
+    return convert<RGB>(lhs_rgba + rhs);
+}
+
+RGBA operator+(const RGBA& lhs, const RGB& rhs)
+{
+    const auto rhs_rgba = convert<RGBA>(rhs);
+    return lhs + rhs_rgba;
+}
+
+RGB operator+(const RGB& lhs, const RGB& rhs)
+{
+    const auto lhs_rgba = convert<RGBA>(lhs);
+    const auto rhs_rgba = convert<RGBA>(rhs);
+    return convert<RGB>(lhs_rgba + rhs_rgba);
+}
+
+RGB operator+(const Luma& lhs, const RGB& rhs)
+{
+    const auto lhs_rgba = convert<RGBA>(lhs);
+    return convert<RGB>(lhs_rgba + rhs);
+}
