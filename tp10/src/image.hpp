@@ -19,6 +19,17 @@ public:
         }
     }
 
+    Image(const std::function<P(size_t i, size_t j)>& f)
+    {
+        for (size_t i = 0; i < H; ++i)
+        {
+            for (size_t j = 0; j < W; ++j)
+            {
+                pixels[i][j] = f(i, j);
+            }
+        }
+    }
+
     const P& operator()(size_t i, size_t j) const { return pixels[j][i]; }
 
     P& operator()(size_t i, size_t j) { return pixels[j][i]; }
