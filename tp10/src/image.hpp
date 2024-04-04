@@ -19,11 +19,9 @@ public:
         }
     }
 
-    const P& img(size_t i, size_t j) const { return pixels[j][i]; }
+    const P& operator()(size_t i, size_t j) const { return pixels[j][i]; }
 
-    P& img(size_t i, size_t j) { return pixels[j][i]; }
-
-    
+    P& operator()(size_t i, size_t j) { return pixels[j][i]; }
 
 private:
     std::array<std::array<P, W>, H> pixels;
