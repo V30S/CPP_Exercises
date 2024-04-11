@@ -1,4 +1,6 @@
+#include <functional>
 #include <iostream>
+#include <map>
 #include <memory>
 #include <sstream>
 #include <string>
@@ -22,16 +24,26 @@ public:
 class Factory
 {
 public:
-    // using Builder = ...;
+    using Builder = std::function<std::unique_ptr<Entity>()>;
 
-    template <typename TDerivedEntity>
-    void register_entity()
-    {}
+    template <typename TDerivedEntity, typename... Args>
+    void register_entity(const std::string& name_builder, const Args&... args)
+    {
+        Builder builder = [args...]() { return std::make_unique<TDerivedEntity>(args...); };
+        _builders.emplace(name_builder, builder);
+    }
 
-    std::unique_ptr<Entity> build(const std::string& id) const { return nullptr; }
+    std::unique_ptr<Entity> build(const std::string& id) const
+    {
+        auto search = _builders.find(id);
+        if (search != _builders.end())
+            return search->second();
+        else
+            return nullptr;
+    }
 
 private:
-    // ...
+    std::map<std::string, Builder> _builders;
 };
 
 class Object : public Entity
@@ -91,7 +103,9 @@ private:
 int main()
 {
     Factory factory;
-    // factory.register_entity<Object>("Object");
+    factory.register_entity<Object>("Object");
+    factory.register_entity<Tree>("Tree");
+    factory.register_entity<Person>("Person", "Jean");
 
     std::vector<std::unique_ptr<Entity>> entities;
 
