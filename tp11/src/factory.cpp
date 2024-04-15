@@ -27,9 +27,10 @@ public:
     using Builder = std::function<std::unique_ptr<Entity>()>;
 
     template <typename TDerivedEntity, typename... Args>
-    void register_entity(const std::string& name_builder, const Args&... args)
+    void register_entity(const std::string& name_builder, Args&&... args)
     {
-        Builder builder = [args...]() { return std::make_unique<TDerivedEntity>(args...); };
+        Builder builder = [&args...]()
+        { return std::make_unique<TDerivedEntity>(std::forward<Args>(args)...); };
         _builders.emplace(name_builder, builder);
     }
 
@@ -106,6 +107,11 @@ int main()
     factory.register_entity<Object>("Object");
     factory.register_entity<Tree>("Tree");
     factory.register_entity<Person>("Person", "Jean");
+    factory.register_entity<Animal>("Dog", "dog");
+
+    auto person = Person("Bob");
+    factory.register_entity<House>("House", person);
+    person.set_name("Picsou");
 
     std::vector<std::unique_ptr<Entity>> entities;
 
